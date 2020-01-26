@@ -1,0 +1,9 @@
+.flex-header-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-quotelist-container {
+  display: flex;
+  flex-direction: row;
+}

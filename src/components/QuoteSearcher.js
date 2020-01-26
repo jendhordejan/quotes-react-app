@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Title from "./Title";
 import Quote from "./Quote";
+import "./QuoteSearcher.css";
 
 export default class QuoteSearcher extends Component {
   state = {
@@ -38,10 +39,14 @@ export default class QuoteSearcher extends Component {
   render() {
     return (
       <div className="quote-nav">
-        <div>
-          <Title title="Quotes" />
+        <div className="flex-header-container">
+          <div>
+            <Title title="Quotes" />
+          </div>
         </div>
-        {this.displayQuotes(this.state.quotes)}
+        <div className="flex-quotelist-container">
+          {this.displayQuotes(this.state.quotes)}
+        </div>
       </div>
     );
   }
