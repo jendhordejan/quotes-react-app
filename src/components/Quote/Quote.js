@@ -2,43 +2,16 @@ import React, { Component } from "react";
 import "./Quote.css";
 
 export default class Quote extends Component {
-  state = {
-    likeActive: false,
-    dislikeActive: false
-  };
-
-  handleLike() {
-    if (this.state.dislikeActive) {
-      this.setLike();
-      this.setDislike();
-    }
-    this.setLike();
-  }
-
-  handleDislike() {
-    if (this.state.likeActive) {
-      this.setDislike();
-      this.setLike();
-    }
-    this.setDislike();
-  }
-  setDislike() {
-    this.setState({
-      dislikeActive: !this.state.dislikeActive
-    });
-  }
-  setLike() {
-    this.setState({
-      likeActive: !this.state.likeActive
-    });
-  }
-
-  handleQuoteText = () => {
+  handleQuoteText = (likeActive, dislikeActive) => {
+    console.log(
+      "handleQuoteText",
+      `like: ${likeActive} dislike: ${dislikeActive}`
+    );
     switch (true) {
-      case this.state.likeActive:
+      case likeActive && !dislikeActive:
         return "like";
         break;
-      case this.state.dislikeActive:
+      case dislikeActive && !likeActive:
         return "dislike";
         break;
       default:
@@ -48,12 +21,16 @@ export default class Quote extends Component {
   };
 
   render() {
-    const { quoteId, quoteText, quoteAuthor } = this.props;
+    const { quoteId, quoteText, quoteAuthor, quote } = this.props;
+    console.log("Quote.js: ", quote);
     return (
       <div>
         <div
           className="mb-wrap mb-style-2 blockquote:after"
-          id={this.handleQuoteText()}
+          id={this.handleQuoteText(
+            this.props.likeActive,
+            this.props.dislikeActive
+          )}
           key={quoteId}
         >
           <blockquote cite="http://www.gutenberg.org/ebboks/11">
@@ -61,21 +38,21 @@ export default class Quote extends Component {
           </blockquote>
         </div>
         <div class="mb-attribution">
-          <p class="mb-author">By: {quoteAuthor}</p>
-        </div>
-        <div>
-          <button
-            onClick={() => this.handleLike()}
-            className={this.state.likeActive ? "active" : ""}
-          >
-            :)
-          </button>
-          <button
-            onClick={() => this.handleDislike()}
-            className={this.state.dislikeActive ? "active" : ""}
-          >
-            :(
-          </button>
+          <p class="mb-author">
+            By: {quoteAuthor}
+            <button
+              onClick={this.props.handleLikedClicked}
+              className={this.props.likeActive ? "active" : ""}
+            >
+              :)
+            </button>
+            <button
+              onClick={this.props.handleDislikedClicked}
+              className={this.props.dislikeActive ? "active" : ""}
+            >
+              :(
+            </button>
+          </p>
         </div>
       </div>
     );
