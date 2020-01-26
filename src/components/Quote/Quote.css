@@ -10,6 +10,21 @@
   padding: 0;
 }
 
+.mb-wrap#like p {
+  margin: 0;
+  padding: 0;
+  color: green;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.mb-wrap#dislike p {
+  margin: 0;
+  padding: 0;
+  color: red;
+  text-decoration: line-through;
+}
+
 .mb-wrap blockquote {
   margin: 0;
   padding: 0;
@@ -79,11 +94,13 @@
   text-align: center;
 }
 
-cite a {
-  color: #d7aa94;
-  font-style: italic;
+button {
+  width: 50px;
+  height: 20px;
+  margin: 1rem;
 }
 
-cite a:hover {
-  color: #d48158;
+.active {
+  border: 1px solid blue;
+  background-color: cornsilk;
 }

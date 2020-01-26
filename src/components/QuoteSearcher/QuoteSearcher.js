@@ -18,8 +18,6 @@ export default class QuoteSearcher extends Component {
       const updateQuoteList = parsedQuoteItems.results.map(quoteItem => {
         return {
           ...quoteItem,
-          liked: false,
-          disliked: false,
           likeness: 0,
           dislikeness: 0
         };

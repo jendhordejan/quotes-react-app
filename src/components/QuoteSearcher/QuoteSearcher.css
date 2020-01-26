@@ -9,19 +9,14 @@
 }
 
 .loading {
-  /* background: none repeat scroll 0 0 rgba(235, 150, 108, 0.8); */
   border-radius: 50% 50% 50% 50%;
   color: rgba(235, 150, 108, 0.8);
   content: "❞";
   font-family: "icons";
   font-size: 70px;
-  /* height: 130px; */
   left: 50%;
-  /* line-height: 130px; */
   margin-left: -65px;
   position: absolute;
   text-align: right;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.1);
-  /* top: 0; */
-  /* width: 130px; */
 }
